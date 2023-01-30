@@ -32,3 +32,7 @@ function saveTask(e) {
 
     console.log("saved")
 }
+
+function generateSchedule() {
+    
+}
