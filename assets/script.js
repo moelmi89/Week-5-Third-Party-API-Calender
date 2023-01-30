@@ -5,8 +5,8 @@ var options = {
 
 function updateSchedule() {
     var currentHour = moment().hour();
-    
-    $('.time-block').each(function (index, element) {
+
+    $('.time-slot').each(function (index, element) {
 
         var hour = $(element).attr('data-hour');
 
@@ -21,4 +21,14 @@ function updateSchedule() {
         }
     });
 
+};
+
+function saveTask(e) {
+
+    var hour = $(e.target).parent().parent().attr("data-hour");
+    var task = $(e.target).parent().prev().children().val();
+
+    localStorage.setItem(hour,task);
+
+    console.log("saved")
 }
