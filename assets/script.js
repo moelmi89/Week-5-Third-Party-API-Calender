@@ -6,20 +6,20 @@ var options = {
 function updateSchedule() {
     var currentHour = moment().hour();
 
-    $('.time-slot').each(function (index, element) {
+    $('.time-slot').each(
+        function (index, element) {
+            var hour = $(element).attr('data-hour');
 
-        var hour = $(element).attr('data-hour');
-
-        if (hour< currentHour) {
-            $(element).find('.description').addClass('past');
-        }
-        else if (hour == currentHour) {
-            $(element).find('.description').addClass('present');
-        }
-        else {
-            $(element).find('.description').addClass('future');
-        }
-    });
+            if (hour< currentHour) {
+                $(element).find('.description').addClass('past');
+            }
+            else if (hour == currentHour) {
+                $(element).find('.description').addClass('present');
+            }
+            else {
+                $(element).find('.description').addClass('future');
+            }
+        });
 
 };
 
@@ -34,5 +34,7 @@ function saveTask(e) {
 }
 
 function generateSchedule() {
-    
+    var container = document.getElementById("container");
+	var day = document.getElementById("currentDay");
+	day.innerText = new Date().toDateString();
 }
