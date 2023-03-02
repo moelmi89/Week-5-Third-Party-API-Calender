@@ -3,6 +3,8 @@ var options = {
     endHour: 17,
 }
 
+generateSchedule();
+
 function updateSchedule() {
     var currentHour = moment().hour();
 
@@ -29,6 +31,7 @@ function saveTask(e) {
     var task = $(e.target).parent().prev().children().val();
 
     localStorage.setItem(hour,task);
+    console.log(hour + " : " + task)
 
     console.log("saved")
 }
@@ -37,4 +40,17 @@ function generateSchedule() {
     var container = document.getElementById("container");
 	var day = document.getElementById("currentDay");
 	day.innerText = new Date().toDateString();
+}
+
+function time_convert(time){
+	if (time<12){
+		return time+" AM"
+	}
+	else if (time==12){
+		return time +" PM"
+	}
+	else {
+		time-=12;
+		return time+" PM"
+	}
 }
