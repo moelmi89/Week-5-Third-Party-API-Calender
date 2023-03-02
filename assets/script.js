@@ -40,6 +40,17 @@ function generateSchedule() {
     var container = document.getElementById("container");
 	var day = document.getElementById("currentDay");
 	day.innerText = new Date().toDateString();
+
+    for (let i = options.startHour; i <= options.endHour; i++) {
+
+		var block = document.createElement("DIV");
+		block.classList.add("time-slot");
+        block.setAttribute('data-hour',i);
+
+        var row = document.createElement("DIV");
+
+}
+    updateSchedule();
 }
 
 function time_convert(time){
